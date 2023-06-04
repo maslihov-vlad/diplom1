@@ -5,11 +5,8 @@ app = Flask(__name__)
 # Endpoint for user registration
 @app.route('/register', methods=['POST'])
 def register():
-    data = request.get_json()
-    login = data.get('login')
-    password = data.get('password')
     # TODO: Perform registration logic and store user in the database
-    print(f"User {login} successfully registered!")
+    print(f"User  successfully registered!")
     return jsonify({'message': 'User registered successfully'})
 
 # Endpoint for user login
@@ -26,7 +23,16 @@ def login():
 @app.route('/app', methods=['GET'])
 def app_endpoint():
     # TODO: Add your logic for returning signals from the app
-    signals = ['Signal 1', 'Signal 2', 'Signal 3']
+    signals = ['Bolinger Bands: BTCUSDT 1h Short',
+               'Moving Average: BTCUSDT 1h Short',
+               'RSI: BTCUSDT 1h Short',
+               'MACD: BTCUSDT 1h Short',
+               'Bolinger Bands: ETHUSDT 15m Short',
+               'Moving Average: ETHUSDT 15m Long',
+               'RSI: ETHUSDT 15m Long',
+               'MACD: BTCUSDT 15m Short']
+    for signal in signals:
+        print(signal)
     return jsonify({'signals': signals})
 
 if __name__ == '__main__':
