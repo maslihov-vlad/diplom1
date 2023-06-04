@@ -33,6 +33,7 @@ def app_endpoint():
                'MACD: BTCUSDT 15m Short']
     signal_logs = []
     for signal in signals:
+        print(signal)
         signal_logs.append(signal)
     return jsonify({'signals': signal_logs})
 
